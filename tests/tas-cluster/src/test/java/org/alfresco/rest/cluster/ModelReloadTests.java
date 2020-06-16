@@ -31,7 +31,7 @@ public class ModelReloadTests extends ClusterTest
      */
     @Bug(id = "REPO-4690")
     @TestRail(section = { TestGroup.REST_API,TestGroup.CLUSTER }, executionType = ExecutionType.SANITY,
-            description = "Verify new data model can be activated on both nodes of the cluster")
+            description = "Verify new data model can be activated on both nodes of the search")
     @Test(groups = { TestGroup.REST_API, TestGroup.CLUSTER, TestGroup.SANITY})
     public void testUploadActivateModel() throws Exception
     {
@@ -121,7 +121,7 @@ public class ModelReloadTests extends ClusterTest
      */
     @Bug(id = "REPO-4690")
     @TestRail(section = { TestGroup.REST_API,TestGroup.CLUSTER }, executionType = ExecutionType.SANITY,
-            description = "Verify syncing a huge datamodel in the cluster")
+            description = "Verify syncing a huge datamodel in the search")
     @Test(groups = { TestGroup.REST_API, TestGroup.CLUSTER, TestGroup.SANITY})
     public void testUploadActivateHugeModel() throws Exception
     {

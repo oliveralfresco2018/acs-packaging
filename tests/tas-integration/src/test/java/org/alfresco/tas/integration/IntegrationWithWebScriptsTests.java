@@ -112,7 +112,7 @@ public class IntegrationWithWebScriptsTests extends IntegrationTest
 
     @Test(groups = { TestGroup.INTEGRATION, TestGroup.REST_API, TestGroup.FULL, TestGroup.ENTERPRISE})
     @TestRail(section = { TestGroup.INTEGRATION,
-            TestGroup.REST_API }, executionType = ExecutionType.REGRESSION, description = "Verify cluster check not blocked by CSRF filter")
+            TestGroup.REST_API }, executionType = ExecutionType.REGRESSION, description = "Verify search check not blocked by CSRF filter")
     public void verifyClusterCheck() throws Exception
     {
         RestAssured.basePath = "";
@@ -128,7 +128,7 @@ public class IntegrationWithWebScriptsTests extends IntegrationTest
         Assert.assertNotNull(csrfCookieValue, "CSRF cookie (" + csrfCookieName + ") should be present");
         Assert.assertNotNull(jsessionidCookieValue, "JSESSIONID cookie (" + jsessionidCookieName + ") should be present");
 
-        STEP("2. Make a POST request to admin console cluster validation");
+        STEP("2. Make a POST request to admin console search validation");
         String validateClusterWebscript = "alfresco/s/enterprise/admin/admin-clustering-test";
         // Post with empty body
         String body = JsonBodyGenerator.defineJSON().build().toString();

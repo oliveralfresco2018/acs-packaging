@@ -117,11 +117,20 @@ jobs:
       jdk: openjdk11
       install:
         - travis_retry travis_wait 40 mvn install -q -PenterpriseDocker
-        - ./tests/scripts/start-compose.sh ./tests/environment/docker-compose-cluster.yml
+        - ./tests/scripts/start-compose.sh ./tests/environment/docker-compose-search.yml
         - ./tests/scripts/wait-for-alfresco-start.sh "http://localhost:8081/alfresco"
         - ./tests/scripts/wait-for-alfresco-start.sh "http://localhost:8082/alfresco"
       script:
-        - travis_wait 20 mvn install -f tests/tas-cluster/pom.xml -Pall-tas-tests -Denvironment=default -DrunBugs=false
+        - travis_wait 20 mvn install -f tests/tas-search/pom.xml -Pall-tas-tests -Denvironment=default -DrunBugs=false
+    - name: "Complete search tests"
+      jdk: openjdk11
+      install:
+        - travis_retry travis_wait 40 mvn install -q -PenterpriseDocker
+        - ./tests/scripts/start-compose.sh ./tests/environment/docker-compose-search-complete.yml
+        - ./tests/scripts/wait-for-alfresco-start.sh "http://localhost:8081/alfresco"
+        - ./tests/scripts/wait-for-alfresco-start.sh "http://localhost:8082/alfresco"
+      script:
+        - travis_wait 20 mvn install -f tests/tas-search/pom.xml -Pall-tas-tests -Denvironment=default -DrunBugs=false
     - name: "Node restart tests"
       jdk: openjdk11
       install:
