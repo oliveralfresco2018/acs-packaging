@@ -45,22 +45,6 @@
             <artifactId>alfresco-share-services</artifactId>
             <type>amp</type>
         </dependency>
-        <dependency>
-            <groupId>org.alfresco.aos-module</groupId>
-            <artifactId>alfresco-aos-module</artifactId>
-            <type>amp</type>
-        </dependency>
-        <dependency>
-            <groupId>org.alfresco.aos-module</groupId>
-            <artifactId>alfresco-vti-bin</artifactId>
-            <type>war</type>
-        </dependency>
-        <dependency>
-            <groupId>org.alfresco.integrations</groupId>
-            <artifactId>alfresco-googledrive-repo-enterprise</artifactId>
-            <version>${alfresco.googledrive.version}</version>
-            <type>amp</type>
-        </dependency>
     </dependencies>
 
     <build>
@@ -110,26 +94,6 @@
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/war/alfresco</outputDirectory>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.alfresco</groupId>
-                                    <artifactId>api-explorer</artifactId>
-                                    <version>${dependency.alfresco-api-explorer.version}</version>
-                                    <type>war</type>
-                                    <outputDirectory>${project.build.directory}/war/api-explorer</outputDirectory>
-                                </artifactItem>
-                                <dependency>
-                                    <groupId>org.alfresco</groupId>
-                                    <artifactId>alfresco-server-root</artifactId>
-                                    <type>war</type>
-                                    <outputDirectory>${project.build.directory}/war/ROOT</outputDirectory>
-                                </dependency>
-                                <artifactItem>
-                                    <groupId>org.alfresco.aos-module</groupId>
-                                    <artifactId>alfresco-vti-bin</artifactId>
-                                    <version>${alfresco.aos-module.version}</version>
-                                    <type>war</type>
-                                    <outputDirectory>${project.build.directory}/war/_vti_bin</outputDirectory>
-                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
@@ -170,22 +134,6 @@
                                     <groupId>org.alfresco</groupId>
                                     <artifactId>alfresco-share-services</artifactId>
                                     <version>${alfresco.alfresco-share-services.version}</version>
-                                    <type>amp</type>
-                                    <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/amps</outputDirectory>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.alfresco.aos-module</groupId>
-                                    <artifactId>alfresco-aos-module</artifactId>
-                                    <version>${alfresco.aos-module.version}</version>
-                                    <type>amp</type>
-                                    <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/amps</outputDirectory>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>org.alfresco.integrations</groupId>
-                                    <artifactId>alfresco-googledrive-repo-enterprise</artifactId>
-                                    <version>${alfresco.googledrive.version}</version>
                                     <type>amp</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/amps</outputDirectory>
