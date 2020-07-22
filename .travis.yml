@@ -19,6 +19,7 @@ branches:
   only:
     - master
     - /support\/.*/
+    - feature/REPO-5309
 
 env:
   global:
@@ -27,6 +28,7 @@ env:
     - DEVELOPMENT_VERSION=7.0.0-SNAPSHOT
 
 stages:
+  - dummy
   - name: test
     if: commit_message !~ /\[skip tests\]/
   - release
@@ -37,6 +39,11 @@ before_install:
   - "cp .travis.settings.xml $HOME/.m2/settings.xml"
 jobs:
   include:
+    - stage: dummy
+      name: "dummy job"
+      install: skip
+      script: echo "dummy job Test"
+
     - stage: test
       name: "WhiteSource scan"
       # only on support branches or master and if it is not a PR
