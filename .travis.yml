@@ -23,6 +23,7 @@ branches:
     - master
     - /release\/.*/
     - fix/MNT-20250_tx_aware_broadcast
+    - fix/ACS-854_model_refresh
 
 env:
   global:
