@@ -22,6 +22,7 @@ branches:
   only:
     - master
     - /release\/.*/
+    - feature/ACS-986-test-with-130
 
 env:
   global:
