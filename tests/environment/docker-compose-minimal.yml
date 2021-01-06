@@ -10,6 +10,8 @@ version: "3"
 
 services:
   alfresco:
+#    build:
+#      context: ./alfresco-with-jolokia
     image: alfresco/alfresco-content-repository:latest
     environment:
       CATALINA_OPTS : "-agentlib:jdwp=transport=dt_socket,address=*:8000,server=y,suspend=n"
@@ -42,10 +44,54 @@ services:
         -Dlegacy.transform.service.enabled=false
         -Dcors.enabled=true
         -Dcors.allowed.origins=http://localhost:4200
+        -Dftp.enabled=false
+        -Dalfresco.host=localhost
+        -Dalfresco.protocol=http
+        -Dalfresco.port=8082
+        -Daos.baseUrlOverwrite=http://localhost:8082/alfresco/aos
+        -Dimap.server.enabled=true
+        -Dimap.server.port=1143
+        -Dimap.server.imaps.port=1143
+        -Dimap.server.host=0.0.0.0
+        -Dmail.protocol=smtp
+        -Dmail.port=465
+        -Dmail.host=smtp.gmail.com
+        -Demail.inbound.unknownUser=admin@alfresco.com
+        -Demail.inbound.enabled=true
+        -Demail.server.enabled=true
+        -Demail.server.port=1126
+        -Dsystem.usages.enabled=true
+        -Dcsrf.filter.enabled=false
         "
     ports:
       - 8082:8080
       - 8000:8000
+
+  share:
+    image: alfresco/alfresco-share:6.2.2
+    environment:
+      REPO_HOST: "alfresco"
+      REPO_PORT: "8082"
+      JAVA_OPTS: "
+              -Xms500m
+              -Xmx500m
+              -Dalfresco.host=localhost
+              -Dalfresco.port=8082
+              -Dalfresco.context=alfresco
+              -Dalfresco.protocol=http
+              "
+    ports:
+      - 9090:8080
+
+  proxy:
+    image: alfresco/alfresco-acs-nginx:3.0.1
+    depends_on:
+      - alfresco
+    ports:
+      - 7070:8080
+    links:
+      - alfresco
+      - share
 
   postgres:
     image: library/postgres:${POSTGRES_TAG}
@@ -57,7 +103,7 @@ services:
       - 5432:5432
 
   solr6:
-    image: quay.io/alfresco/insight-engine:${SOLR6_TAG}
+    image: alfresco/alfresco-search-services:1.4.2
     environment:
       #Solr needs to know how to register itself with Alfresco
       - SOLR_ALFRESCO_HOST=alfresco

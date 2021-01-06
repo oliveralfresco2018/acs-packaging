@@ -9,7 +9,7 @@
         <groupId>org.alfresco</groupId>
         <artifactId>alfresco-enterprise-repo</artifactId>
         <relativePath>../alfresco-enterprise-repo/pom.xml</relativePath>
-        <version>8.374</version>
+        <version>8.375-SNAPSHOT</version>
     </parent>
 
     <scm>
@@ -31,12 +31,12 @@
     </distributionManagement>
 
     <properties>
-        <dependency.alfresco-community-repo.version>8.355</dependency.alfresco-community-repo.version>
-        <dependency.alfresco-enterprise-repo.version>8.374</dependency.alfresco-enterprise-repo.version>
+        <dependency.alfresco-community-repo.version>8.356-SNAPSHOT</dependency.alfresco-community-repo.version>
+        <dependency.alfresco-enterprise-repo.version>8.375-SNAPSHOT</dependency.alfresco-enterprise-repo.version>
 
-        <alfresco.share.version>7.0.0-M3</alfresco.share.version>
+        <alfresco.share.version>latest</alfresco.share.version>
         <alfresco.alfresco-share-services.version>${alfresco.share.version}</alfresco.alfresco-share-services.version>
-        <alfresco.api-explorer.version>7.0.0-M1</alfresco.api-explorer.version>
+        <alfresco.api-explorer.version>7.0.0-SNAPSHOT</alfresco.api-explorer.version>
         <alfresco.rm-enterprise-rest-api-explorer.version>3.0.2</alfresco.rm-enterprise-rest-api-explorer.version>
         <alfresco.s3connector.version>3.1.0</alfresco.s3connector.version>
         <alfresco.glacier-connector.version>2.1.0</alfresco.glacier-connector.version>
@@ -73,7 +73,7 @@
             <modules>
                 <module>distribution</module>
                 <module>docker-alfresco</module>
-                <module>docker-alfresco/aws</module>
+<!--                <module>docker-alfresco/aws</module>-->
             </modules>
         </profile>
         <profile>

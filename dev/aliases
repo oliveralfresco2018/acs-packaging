@@ -38,25 +38,26 @@
 #   entODebug - acs-packaging
 
 export TAG=latest
+alias mvnp='mvn '
 
-alias comR='(cd alfresco-community-repo  && mvn clean install                                                                          -DskipTests=true -Dversion.edition=Community)'
-alias entR='(cd alfresco-enterprise-repo && mvn clean install                                                                          -DskipTests=true -Dmaven.javadoc.skip=true )'
-alias entP='(cd acs-packaging            && mvn clean install)'
-alias comP='(cd acs-community-packaging  && mvn clean install                                                                          -Dmaven.javadoc.skip=true)'
+alias comR='(cd alfresco-community-repo  && mvnp clean install                                                                          -DskipTests=true -Dversion.edition=Community)'
+alias entR='(cd alfresco-enterprise-repo && mvnp clean install                                                                          -DskipTests=true -Dmaven.javadoc.skip=true )'
+alias entP='(cd acs-packaging            && mvnp clean install)'
+alias comP='(cd acs-community-packaging  && mvnp clean install                                                                          -Dmaven.javadoc.skip=true)'
 
-alias comRD="(cd alfresco-community-repo  && mvn clean install -PcommunityDocker  -Dimage.tag=$TAG                             -DskipTests=true -Dversion.edition=Community)"
-alias entRD="(cd alfresco-enterprise-repo && mvn clean install -PenterpriseDocker -Dimage.tag=$TAG                             -DskipTests=true -Dmaven.javadoc.skip=true )"
-alias comPD="(cd acs-community-packaging  && mvn clean install -PcommunityDocker  -Dimage.tag=$TAG -Drepo.image.tag=$TAG -Dmaven.javadoc.skip=true)"
-alias entPD="(cd acs-packaging            && mvn clean install -PenterpriseDocker -Dimage.tag=$TAG -Drepo.image.tag=$TAG)"
+alias comRD="(cd alfresco-community-repo  && mvnp clean install -PcommunityDocker  -Dimage.tag=$TAG                             -DskipTests=true -Dversion.edition=Community)"
+alias entRD="(cd alfresco-enterprise-repo && mvnp clean install -PenterpriseDocker -Dimage.tag=$TAG                             -DskipTests=true -Dmaven.javadoc.skip=true )"
+alias comPD="(cd acs-community-packaging  && mvnp clean install -PcommunityDocker  -Dimage.tag=$TAG -Drepo.image.tag=$TAG -Dmaven.javadoc.skip=true)"
+alias entPD="(cd acs-packaging            && mvnp clean install -PenterpriseDocker -Dimage.tag=$TAG -Drepo.image.tag=$TAG)"
 
-alias comT='     (cd acs-community-packaging  && mvn      clean install -Prun,withShare)'
+alias comT='     (cd acs-community-packaging  && mvnp      clean install -Prun,withShare)'
 alias comTDebug='(cd acs-community-packaging  && mvnDebug clean install -Prun,withShare)'
-alias comO='     (cd acs-community-packaging  && mvn            install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
+alias comO='     (cd acs-community-packaging  && mvnp            install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
 alias comODebug='(cd acs-community-packaging  && mvnDebug       install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
 
-alias entT='     (cd acs-packaging            && mvn      clean install -Prun,withShare)'
-alias entTDebug='(cd acs-packaging            && mvnDebug clean install -Prun,withShare)'
-alias entO='     (cd acs-packaging            && mvn            install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
+alias entT='     (cd acs-packaging            && mvnp      clean install -Prun,withShare)'
+alias entTDebug='(cd acs-packaging            && mvnp clean install -Prun,withShare && mvnDebug clean install -Prun,withShare)'
+alias entO='     (cd acs-packaging            && mvnp            install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
 alias entODebug='(cd acs-packaging            && mvnDebug       install -Prun,withShare -rf dev/dev-acs-amps-overlay)'
 
 alias com='comR && comP && comT'
