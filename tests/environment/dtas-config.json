@@ -1,7 +1,7 @@
 {
     "config": {
         "host": "http://localhost:8080",
-        "username": "admin",
+        "username": "admin.adf@alfresco.com",
         "password": "admin"
     },
     "assertions": {
