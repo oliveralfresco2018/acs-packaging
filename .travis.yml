@@ -185,11 +185,11 @@ jobs:
         # - pip install requests pytest
         # - git clone --depth 1 --branch v1.0-M1 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Alfresco/alfresco-deployment-test-automation-scripts.git dtas
         - docker images | grep pipeline
-        - ${TAS_SCRIPTS}/start-compose.sh ${TAS_ENVIRONMENT}/docker-compose-pipeline-all-amps.yml
-        - ${TAS_SCRIPTS}/wait-for-alfresco-start.sh "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/probes/-live-"
       script:
+        - ${TAS_SCRIPTS}/start-compose.sh ${TAS_ENVIRONMENT}/docker-compose-pipeline-all-amps.yml
+        - ${TAS_SCRIPTS}/wait-for-alfresco-start.sh "http://localhost:8080/alfresco"
         - docker ps
-        - curl -v http://localhost:8080/alfresco//api/-default-/public/alfresco/versions/1//probes/-live-
+        # - curl -v http://localhost:8080/alfresco//api/-default-/public/alfresco/versions/1//probes/-live-
         # - cd dtas
         # - pytest --configuration ../tests/environment/dtas-config.json tests/ -s
 
