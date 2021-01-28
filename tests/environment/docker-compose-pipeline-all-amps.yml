@@ -12,7 +12,7 @@ version: "2"
 
 services:
     alfresco:
-        image: alfresco/alfresco-pipeline-all-amps-repo:latest
+        image: alfresco/alfresco-pipeline-all-amps-repo:7.0.0-M3
         mem_limit: 1700m
         environment:
             JAVA_TOOL_OPTIONS: "
@@ -107,7 +107,7 @@ services:
             - shared-file-store-volume:/tmp/Alfresco/sfs
 
     share:
-        image: alfresco/alfresco-pipeline-all-amps-share:latest
+        image: alfresco/alfresco-pipeline-all-amps-share:7.0.0-M3
         mem_limit: 1g
         environment:
             REPO_HOST: "alfresco"
