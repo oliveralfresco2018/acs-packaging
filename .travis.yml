@@ -187,9 +187,8 @@ jobs:
         - docker images | grep pipeline
       script:
         - ${TAS_SCRIPTS}/start-compose.sh ${TAS_ENVIRONMENT}/docker-compose-pipeline-all-amps.yml
-        - ${TAS_SCRIPTS}/wait-for-alfresco-start.sh "http://localhost:8080/alfresco"
+        - ${TAS_SCRIPTS}/wait-for-alfresco-start.sh "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/probes/-live-"
         - docker ps
-        # - curl -v http://localhost:8080/alfresco//api/-default-/public/alfresco/versions/1//probes/-live-
         # - cd dtas
         # - pytest --configuration ../tests/environment/dtas-config.json tests/ -s
 
