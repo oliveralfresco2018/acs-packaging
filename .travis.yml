@@ -180,21 +180,17 @@ jobs:
       if: fork = false AND type != pull_request
       before_script:
         - travis_retry travis_wait 20 mvn -B clean install -Ppipeline,local
-        # - pyenv versions
-        # - pyenv global 3.7.1
-        # - pip install requests pytest
-        # - git clone --depth 1 --branch v1.0-M1 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Alfresco/alfresco-deployment-test-automation-scripts.git dtas
+        - pyenv versions
+        - pyenv global 3.7.1
+        - pip install requests pytest
+        - git clone --depth 1 --branch v1.0-M1 https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Alfresco/alfresco-deployment-test-automation-scripts.git dtas
         - docker images | grep pipeline
       script:
         - ${TAS_SCRIPTS}/start-compose.sh ${TAS_ENVIRONMENT}/docker-compose-pipeline-all-amps.yml
         - ${TAS_SCRIPTS}/wait-for-alfresco-start.sh "http://localhost:8080/alfresco/" 180
         - docker ps
-        - curl -v http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/probes/-live-
-        - ALFCONTAINER=`docker ps -a | grep _alfresco | awk '{ print $1 }'`
-        - echo "Last 200 lines from alfresco.log on container $ALFCONTAINER:"
-        - docker logs --tail=200 $ALFCONTAINER
-        # - cd dtas
-        # - pytest --configuration ../tests/environment/dtas-config.json tests/ -s
+        - cd dtas
+        - pytest --configuration ../tests/environment/dtas-config.json tests/ -s
 
 
     # - name: "Update latest and Single Pipeline <acs>-<build> images"
