@@ -1,7 +1,7 @@
 {
     "config": {
         "host": "http://localhost:8080",
-        "username": "admin.adf@alfresco.com",
+        "username": "admin.pipeline@alfresco.com",
         "password": "admin"
     },
     "assertions": {
@@ -27,7 +27,7 @@
                 },
                 {
                     "name": "AGS Enterprise Repo",
-                    "version": "3.5.0-M1",
+                    "version": "3.5.0",
                     "installed": true
                 }
             ]
