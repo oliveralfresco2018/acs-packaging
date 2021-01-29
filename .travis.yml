@@ -192,7 +192,7 @@ jobs:
         - docker ps
         - curl -v --user admin.pipeline@alfresco.com:admin http://localhost:8080/alfresco/api/discovery
         - cd dtas
-        - pytest --configuration tests/pipeline-all-amps/repo/target/dtas/dtas-config.json tests/ -s
+        - pytest --configuration ../tests/pipeline-all-amps/repo/target/dtas/dtas-config.json tests/ -s
 
 
     # - name: "Update latest and Single Pipeline <acs>-<build> images"
