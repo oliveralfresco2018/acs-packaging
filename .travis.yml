@@ -180,7 +180,7 @@ jobs:
       if: fork = false AND type != pull_request
       before_script:
         - travis_retry travis_wait 20 mvn -B clean install -Ppipeline,local
-        - cat ./target/dtas/dtas-config.json
+        - cat tests/pipeline-all-amps/repo/target/dtas/dtas-config.json
         - pyenv versions
         - pyenv global 3.7.1
         - pip install requests pytest
@@ -192,7 +192,7 @@ jobs:
         - docker ps
         - curl -v --user admin.pipeline@alfresco.com:admin http://localhost:8080/alfresco/api/discovery
         - cd dtas
-        - pytest --configuration ./target/dtas/dtas-config.json tests/ -s
+        - pytest --configuration tests/pipeline-all-amps/repo/target/dtas/dtas-config.json tests/ -s
 
 
     # - name: "Update latest and Single Pipeline <acs>-<build> images"
