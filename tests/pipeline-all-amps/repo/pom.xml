@@ -12,6 +12,12 @@
     <packaging>pom</packaging>
 
     <build>
+        <resources>
+            <resource>
+                <directory>tests/environment/dtas</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
