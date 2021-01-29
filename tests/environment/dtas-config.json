@@ -11,6 +11,16 @@
             "identity": false,
             "modules": [
                 {
+                    "name": "Alfresco Share Services AMP",
+                    "version": "7.0.0-M3",
+                    "installed": true
+                },
+                {
+                    "name": "alfresco-trashcan-cleaner project",
+                    "version": "2.3",
+                    "installed": true
+                },
+                {
                     "name": "Alfresco / Google Docs Integration",
                     "version": "3.2.0",
                     "installed": true
@@ -26,8 +36,43 @@
                     "installed": true
                 },
                 {
+                    "name": "AGS Repo",
+                    "version": "3.5.0",
+                    "installed": true
+                },
+                {
                     "name": "AGS Enterprise Repo",
                     "version": "3.5.0",
+                    "installed": true
+                },
+                {
+                    "name": "Alfresco SAML Repository AMP Module",
+                    "version": "1.2.1",
+                    "installed": true
+                },
+                {
+                    "name": "Alfresco Glacier Connector Repo",
+                    "version": "2.1.0",
+                    "installed": true
+                },
+                {
+                    "name": "S3 Connector",
+                    "version": "3.1.0",
+                    "installed": true
+                },
+                {
+                    "name": "Alfresco Intelligence Services Repository AMP",
+                    "version": "1.2.1",
+                    "installed": true
+                },
+                {
+                    "name": "Alfresco Content Connector for Azure",
+                    "version": "1.2.0",
+                    "installed": true
+                },
+                {
+                    "name": "Alfresco Content Connector for Salesforce Repository AMP",
+                    "version": "2.2.1-M1",
                     "installed": true
                 }
             ]
