@@ -37,12 +37,12 @@
                 },
                 {
                     "name": "AGS Repo",
-                    "version": "${alfresco.ags.version}",
+                    "version": "3.5.0",
                     "installed": true
                 },
                 {
                     "name": "AGS Enterprise Repo",
-                    "version": "${alfresco.ags.version}",
+                    "version": "3.5.0",
                     "installed": true
                 },
                 {
