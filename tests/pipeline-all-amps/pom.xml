@@ -61,7 +61,7 @@
             <id>internal</id>
             <!-- publishes "image:<acs.version>-<build-number>" on Quay -->
             <properties>
-                <image.tag>${acs.version}-${build-number}</image.tag>
+                <image.tag>APPS-596_SLO</image.tag>
             </properties>
             <build>
                 <plugins>
@@ -85,7 +85,7 @@
             <id>release</id>
             <!-- publishes "image:release_version" on Quay -->
             <properties>
-                <image.tag>${project.version}</image.tag>
+                <image.tag>APPS-596_SLO</image.tag>
             </properties>
             <build>
                 <plugins>
